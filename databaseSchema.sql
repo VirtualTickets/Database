@@ -26,12 +26,15 @@ CREATE TABLE Favorited
 CREATE TABLE Bought
 (
 	user_id INT NOT NULL,
-	movie_id VARCHAR(64) NOT NULL,
+	title VARCHAR(256) NOT NULL,
+	theatre VARCHAR(128) NOT NULL,
+	purchase_date BIGINT NOT NULL,
+	view_date BIGINT NOT NULL,
 	num_tickets INT NOT NULL,
 	cost FLOAT,
 	FOREIGN KEY (user_id) REFERENCES User(id)
 	ON DELETE CASCADE,
-	PRIMARY KEY(user_id, movie_id)
+	PRIMARY KEY(user_id, purchase_date)
 );
 
 CREATE TABLE Location
